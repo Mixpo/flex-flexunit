@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.types.FileSet;
 import org.flexunit.ant.tasks.FlexUnitTask;
+import org.flexunit.ant.tasks.types.CompilerOption;
 
 public class FlexUnitTaskHarness extends TestCase
 {
@@ -44,6 +45,10 @@ public class FlexUnitTaskHarness extends TestCase
       FileSet libraryFileSet = new FileSet();
       libraryFileSet.setDir(new File("test/sandbox/libs"));
       fixture.addLibrary(libraryFileSet);
+      
+      CompilerOption compilerOption = new CompilerOption();
+      compilerOption.setOption("-default-frame-rate 24");
+      fixture.addAdditionalCompilerOption(compilerOption);
    }
 
    public void testExecute()

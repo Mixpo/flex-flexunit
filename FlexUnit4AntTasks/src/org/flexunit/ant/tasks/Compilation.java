@@ -1,6 +1,7 @@
 package org.flexunit.ant.tasks;
 
 import java.io.File;
+import java.util.Iterator;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Project;
@@ -13,6 +14,7 @@ import org.apache.tools.ant.types.resources.URLResource;
 import org.apache.tools.ant.util.ResourceUtils;
 import org.flexunit.ant.LoggingUtil;
 import org.flexunit.ant.tasks.configuration.CompilationConfiguration;
+import org.flexunit.ant.tasks.types.CompilerOption;
 
 public class Compilation
 {
@@ -178,13 +180,19 @@ public class Compilation
       Argument headlessServer = task.createArg();
       headlessServer.setLine("-headless-server=true");
       
-      
+	  Iterator<CompilerOption> iterator = configuration.getCompilerOptions().iterator();
+	  while(iterator.hasNext())
+	  {
+		  CompilerOption compilerOption = iterator.next();
+		  Argument define = task.createArg();
+		  define.setValue(compilerOption.getOption());
+	  }
+	  
       Argument mainFile = task.createArg();
       mainFile.setValue(runnerFile.getAbsolutePath());
       
       return task;
    }
-   
    
    private void determineLoadConfigArgument(Java java)
    {
@@ -194,7 +202,7 @@ public class Compilation
            argument.setLine(configuration.getLoadConfig().getCommandLineArgument());
        }
    }
-
+   
    private void determineLibraryPath(Java java)
    {
        if(!configuration.getLibraries().getPathElements(" -library-path+=").isEmpty())
