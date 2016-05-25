@@ -47,7 +47,7 @@ public class FlexUnitTaskHarness extends TestCase
       fixture.addLibrary(libraryFileSet);
       
       CompilerOption compilerOption = new CompilerOption();
-      compilerOption.setOption("-default-frame-rate 24");
+      compilerOption.setOption("-default-frame-rate=24");
       fixture.addAdditionalCompilerOption(compilerOption);
    }
 
