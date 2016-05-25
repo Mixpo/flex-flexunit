@@ -137,6 +137,11 @@ public class TaskConfiguration
       testRunConfiguration.setSwf(swf);
    }
    
+   public void setUrl(String url)
+   {
+      testRunConfiguration.setUrl(url);
+   }
+   
    public boolean isVerbose()
    {
       return verbose;
@@ -185,15 +190,15 @@ public class TaskConfiguration
       
       File swf = testRunConfiguration.getSwf();
       boolean noTestSources = !compilationConfiguration.getTestSources().provided();
-      
-      if ((swf == null || !swf.exists()) && noTestSources)
+      String url = testRunConfiguration.getUrl();
+      if ((url == null && swf == null && noTestSources) || (url == null && swf != null && !swf.exists() && noTestSources))
       {
          throw new BuildException("The provided 'swf' property value [" + (swf == null ? "" : swf.getPath()) + "] could not be found.");
       }
       
-      if(swf != null && !noTestSources)
+      if(url != null && swf != null && !noTestSources)
       {
-         throw new BuildException("Please specify the 'swf' property or use the 'testSource' element(s), but not both.");
+         throw new BuildException("Please specify the 'swf' property or 'url' property or use the 'testSource' element(s), but not together.");
       }
       
       //if we can't find the FLEX_HOME and we're using ADL or compilation

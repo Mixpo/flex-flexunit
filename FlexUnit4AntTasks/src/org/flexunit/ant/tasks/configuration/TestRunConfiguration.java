@@ -251,7 +251,16 @@ public class TestRunConfiguration implements StepConfiguration
       }
       
       LoggingUtil.log("\tport: [" + port + "]");
-      LoggingUtil.log("\tswf: [" + swf + "]");
+      
+      //swf not required to run if not using url
+      if(swf != null) {    	  
+    	  LoggingUtil.log("\tswf: [" + swf + "]");
+      }
+      
+      //url not required to run if not using swf
+      if(url != null) {    	  
+    	  LoggingUtil.log("\turl: [" + url + "]");
+      }
       LoggingUtil.log("\ttimeout: [" + socketTimeout + "ms]");
       LoggingUtil.log("\ttoDir: [" + reportDir.getAbsolutePath() + "]");
    }

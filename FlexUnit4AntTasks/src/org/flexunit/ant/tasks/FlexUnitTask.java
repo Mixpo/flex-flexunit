@@ -76,6 +76,17 @@ public class FlexUnitTask extends Task implements DynamicElement
    {
       configuration.setSwf(testSWF);
    }
+   
+   /**
+    * The URL for the FlexUnit tests to run.
+    * 
+    * @param testURL
+    *           the URL to set.
+    */
+   public void setURL(final String testURL)
+   {
+      configuration.setUrl(testURL);
+   }
 
    /**
     * Set the directory to output the test reports to.
