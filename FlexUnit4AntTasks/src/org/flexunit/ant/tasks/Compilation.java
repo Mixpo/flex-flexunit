@@ -208,7 +208,9 @@ public class Compilation
        if(!configuration.getLibraries().getPathElements(" -library-path+=").isEmpty())
        {
            Argument libraryPath = java.createArg();
-           libraryPath.setLine("-library-path+=" + configuration.getLibraries().getPathElements(" -library-path+="));
+           
+           //libraryPath.setLine("-library-path+=" + configuration.getLibraries().getPathElements(" -library-path+="));
+           libraryPath.setLine("-include-libraries+=" + configuration.getLibraries().getPathElements(" -include-libraries+="));
        }
    }
    
