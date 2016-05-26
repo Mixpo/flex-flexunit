@@ -24,4 +24,5 @@ FlexUnit4UIListener/libs/*
 FlexUnit4UIListener/target/*
 .metadata
 .actionScriptProperties
+.recommenders
 */.settings

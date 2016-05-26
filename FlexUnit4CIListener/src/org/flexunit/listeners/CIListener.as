@@ -25,7 +25,6 @@
  * @author     Jeff Tapper
  * @version
  **/
-
 package org.flexunit.listeners
 {
     import flash.events.DataEvent;
@@ -36,7 +35,11 @@ package org.flexunit.listeners
     import flash.events.TimerEvent;
     import flash.net.XMLSocket;
     import flash.utils.Timer;
-
+    
+    import apparat.coverage.Coverage;
+    import apparat.coverage.CoverageDataCollector;
+    import apparat.coverage.TestCoverageReport;
+    
     import org.flexunit.listeners.closer.ApplicationCloser;
     import org.flexunit.listeners.closer.StandAloneFlashPlayerCloser;
     import org.flexunit.reporting.FailureFormatter;
@@ -48,10 +51,15 @@ package org.flexunit.listeners
     import org.flexunit.runner.notification.ITemporalRunListener;
     import org.flexunit.runner.notification.async.AsyncListenerWatcher;
 
-    import apparat.coverage.CoverageDataCollector; //JG
-
     public class CIListener extends EventDispatcher implements IAsyncStartupRunListener, ITemporalRunListener
     {
+		// old school way to make sure Flash compiles run-time classes into a SWF
+		public static const forceIncludes:Array = [
+			Coverage,
+			CoverageDataCollector,
+			TestCoverageReport
+		];
+		
         protected static const DEFAULT_PORT : uint = 1024;
         protected static const DEFAULT_SERVER : String = "127.0.0.1";
         private static const SUCCESS:String = "success";

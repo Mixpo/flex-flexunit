@@ -9,5 +9,11 @@
 	<classpathentry kind="lib" path="lib/ant-1.7.1.jar" sourcepath="/Users/dblegros/api/apache-ant-1.7.1/src"/>
 	<classpathentry kind="lib" path="lib/ant-launcher-1.7.1.jar"/>
 	<classpathentry kind="lib" path="lib/ant-testutil-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/apparat-core-1.0-RC9.jar"/>
+	<classpathentry kind="lib" path="lib/apparat-log-1.0-RC9.jar"/>
+	<classpathentry kind="lib" path="lib/cobertura.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.9.jar"/>
+	<classpathentry kind="lib" path="lib/plexus-utils-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/scala-library.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

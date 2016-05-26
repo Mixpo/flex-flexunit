@@ -209,8 +209,8 @@ public class Compilation
        {
            Argument libraryPath = java.createArg();
            
-           //libraryPath.setLine("-library-path+=" + configuration.getLibraries().getPathElements(" -library-path+="));
-           libraryPath.setLine("-include-libraries+=" + configuration.getLibraries().getPathElements(" -include-libraries+="));
+           libraryPath.setLine("-library-path+=" + configuration.getLibraries().getPathElements(" -library-path+="));
+           //libraryPath.setLine("-include-libraries+=" + configuration.getLibraries().getPathElements(" -include-libraries+="));
        }
    }
    

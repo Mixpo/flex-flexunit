@@ -61,6 +61,7 @@
          </compiler.external-library-path>
          <compiler.verbose-stacktraces>true</compiler.verbose-stacktraces>
          <compiler.headless-server>true</compiler.headless-server>
+         <target-player>10.0.0</target-player>
       </compc>
    </target>
 
